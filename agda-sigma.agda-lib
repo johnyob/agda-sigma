@@ -1,0 +1,7 @@
+name: agda-sigma-0.1
+include: 
+  src
+  examples
+depend:
+  standard-library
+    
