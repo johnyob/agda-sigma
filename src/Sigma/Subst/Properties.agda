@@ -21,8 +21,8 @@ open Eq.≡-Reasoning
 -- to prove whether to subsitutions are equivalent
 
 postulate 
-  extensionality : ∀ { n } { T } { f g : Sub T n }
-    → (∀ x → f x ≡ g x)
+  extensionality : ∀ { T U : Set } { f g : T → U }
+    → (∀ (x : T) → f x ≡ g x)
     → f ≡ g
 
 -- ------------------------------------------------------------------------
