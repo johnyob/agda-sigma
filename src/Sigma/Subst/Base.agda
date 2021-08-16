@@ -39,7 +39,7 @@ infixr 5 _∷_
 -- Intuitively, the σ-cons operator mimics the 
 -- semantics of cons operator on vectors. 
 -- 
--- x ∷ ρ = { 0 ↦ x } ∪ { 1 + i ↦ ρ i : i ∈ 𝕀ⁿ }
+-- x ∷ σ = { 0 ↦ x } ∪ { 1 + i ↦ σ i : i ∈ 𝕀ⁿ }
 _∷_ : ∀ { n } { T } → T → Sub T n → Sub T (1 + n)
 (x ∷ σ) zero = x
 (x ∷ σ) (suc n) = σ n
