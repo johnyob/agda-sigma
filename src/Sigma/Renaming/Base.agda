@@ -17,6 +17,8 @@ open import Data.Fin using (Fin; zero; suc)
 
 open import Function as Fun using (_∘_)
 
+open import Data.Product using (_×_; proj₁; proj₂) renaming (_,_ to ⟨_,_⟩)
+
 open import Sigma.Subst.Base using (Sub; _∷_; []; _++_)
 
 -- ------------------------------------------------------------------------
@@ -24,6 +26,15 @@ open import Sigma.Subst.Base using (Sub; _∷_; []; _++_)
 -- A renaming ρ : 𝕀ⁿ → 𝕀ᵐ is denoted { i ↦ j : i ∈ 𝕀ⁿ, j ∈ 𝕀ᵐ }
 Ren : ℕ → ℕ → Set 
 Ren m n = Sub (Fin n) m
+
+space : ∀ { m n } → Ren m n → ℕ × ℕ
+space { m } { n } _ = ⟨ m , n ⟩
+
+dom : ∀ { m n } → Ren m n → ℕ
+dom = proj₁ ∘ space
+
+rng : ∀ { m n } → Ren m n → ℕ
+rng = proj₂ ∘ space
 
 -- Identity renaming idₙ : 𝕀ⁿ → 𝕀ⁿ. 
 -- Defined by idₙ = { i ↦ i : i ∈ 𝕀ⁿ }.
